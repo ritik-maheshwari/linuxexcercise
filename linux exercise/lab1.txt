@@ -1,0 +1,224 @@
+1. check the current working directory command , and get list with including hidden file
+as well filesize of each of file and folder.
+
+ritik.maheshwari@RSPL-189:~$ pwd
+/home/ad.rapidops.com/ritik.maheshwari
+ritik.maheshwari@RSPL-189:~$ ls -als
+total 108
+ 4 drwx------ 19 ritik.maheshwari domain users 4096 Jan 10 10:18 .
+ 4 drwxr-xr-x  3 root             domain users 4096 Jan  4 19:57 ..
+ 4 -rw-------  1 ritik.maheshwari domain users  336 Jan  8 19:14 .bash_history
+ 4 -rw-------  1 ritik.maheshwari domain users  220 Jan  4 19:57 .bash_logout
+ 4 -rw-------  1 ritik.maheshwari domain users 3771 Jan  4 19:57 .bashrc
+ 4 drwx------ 15 ritik.maheshwari domain users 4096 Jan  7 10:56 .cache
+ 4 drwx------ 16 ritik.maheshwari domain users 4096 Jan 10 11:04 .config
+ 4 drwxr-xr-x  3 ritik.maheshwari domain users 4096 Jan 10 11:04 Desktop
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Documents
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan 10 10:13 Downloads
+12 -rw-------  1 ritik.maheshwari domain users 8980 Jan  4 19:57 examples.desktop
+ 4 drwx------  3 ritik.maheshwari domain users 4096 Jan  7 11:12 .gnupg
+ 4 -rw-------  1 ritik.maheshwari domain users 1630 Jan 10 10:05 .ICEauthority
+ 4 drwx------  3 ritik.maheshwari domain users 4096 Jan  4 19:57 .local
+ 4 drwx------  5 ritik.maheshwari domain users 4096 Jan  7 10:38 .mozilla
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Music
+ 4 drwx------  4 ritik.maheshwari domain users 4096 Jan  7 11:12 .nv
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Pictures
+ 4 drwx------  3 ritik.maheshwari domain users 4096 Jan  7 11:41 .pki
+ 4 -rw-------  1 ritik.maheshwari domain users  807 Jan  4 19:57 .profile
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Public
+ 4 drwx------  2 ritik.maheshwari domain users 4096 Jan  7 11:12 .ssh
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Templates
+ 4 drwxr-xr-x  2 ritik.maheshwari domain users 4096 Jan  4 19:58 Videos
+ 4 drwxr-xr-x  3 ritik.maheshwari domain users 4096 Jan 10 10:18 .vscode
+
+2. then create the 2 folder name with intern-2020 & rapidops-2020.
+
+ritik.maheshwari@RSPL-189:~$ cd Desktop
+ritik.maheshwari@RSPL-189:~/Desktop$ mkdir intern-2020 rapidops-2020
+ritik.maheshwari@RSPL-189:~/Desktop$ ls
+intern-2020  lab1.txt  rapidops-2020  shell_scripting
+
+3. then create 2 file within intern-2020 folder, filename is dev.txt helloworld.txt,
+
+ritik.maheshwari@RSPL-189:~/Desktop$ touch intern-2020/{dev.txt,helloworld.txt}
+ritik.maheshwari@RSPL-189:~/Desktop$ ls intern-2020
+dev.txt  helloworld.txt
+
+4. open the dev.txt file and write down here about any content, and in helloworld.txt file
+write the “helloworld” with using echo command,
+
+ritik.maheshwari@RSPL-189:~/Desktop$ ls intern-2020
+dev.txt  helloworld.txt
+ritik.maheshwari@RSPL-189:~/Desktop$ cd intern-2020
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ cat > dev.txt
+dev stands for developer
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ echo helloworld > helloworld.txt
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ cat dev.txt
+dev stands for developer
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ cat helloworld.txt
+helloworld
+
+5. Now copy dev.txt and helloworld.txt into rapidops-2020 folder,
+
+ritik.maheshwari@RSPL-189:~/Desktop$ ls
+intern-2020  lab1.txt  rapidops-2020  shell_scripting
+ritik.maheshwari@RSPL-189:~/Desktop$ cp intern-2020/{dev.txt,helloworld.txt} rapidops-2020/
+ritik.maheshwari@RSPL-189:~/Desktop$ ls rapidops-2020
+dev.txt  helloworld.txt
+
+6. Now go to the rapidops-2020 folder and rename that 2(dev.txt, helloworld.txt) files.
+
+ritik.maheshwari@RSPL-189:~/Desktop/rapidops-2020$ mv dev.txt dev1.txt
+ritik.maheshwari@RSPL-189:~/Desktop/rapidops-2020$ ls
+dev1.txt  helloworld.txt
+ritik.maheshwari@RSPL-189:~/Desktop/rapidops-2020$ mv helloworld.txt helloworld1.txt
+ritik.maheshwari@RSPL-189:~/Desktop/rapidops-2020$ ls
+dev1.txt  helloworld1.txt
+
+7. In the same directory path give the read only permission to dev.txt for file’s owner and
+give read-write-execute for owner & read-write permission for group to helloworld.txt.
+
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ chmod 400 dev.txt ; chmod 760 helloworld.txt
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ ls -l
+total 8
+-r-------- 1 ritik.maheshwari domain users 25 Jan 10 11:21 dev.txt
+-rwxrw---- 1 ritik.maheshwari domain users 11 Jan 10 11:21 helloworld.txt
+
+8. Now create archive file within same directory and shift into intern-2020 directory.
+
+gzip dev1.txt ; mv dev1.txt.gz ../intern-2020
+
+
+9. Now copy that archive file within same directory location and remove the older archive
+file.
+
+ritik.maheshwari@RSPL-189:~/Desktop$ cd intern-2020
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ cp dev1.txt.gz dev2.txt.gz ; rm -r dev1.txt.gz
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ ls
+dev2.txt.gz  dev.txt  helloworld.txt
+ritik.maheshwari@RSPL-189:~/Desktop/intern-2020$ 
+
+10. Using the command find out the dev.txt file.
+
+ritik.maheshwari@RSPL-189:~$ find -iname dev.txt
+./Desktop/intern-2020/dev.txt
+
+11. Check the cpu, memory usage with using CLI.
+
+ritik.maheshwari@RSPL-189:~$ top
+
+top - 12:38:23 up  2:34,  1 user,  load average: 0.32, 0.12, 0.09
+Tasks: 402 total,   1 running, 301 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.4 us,  0.7 sy,  0.0 ni, 97.8 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16354612 total, 11331312 free,  2801696 used,  2221604 buff/cache
+KiB Swap:   999420 total,   999420 free,        0 used. 13049804 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND     
+ 2235 ritik.m+  20   0 5348304 382180 100848 S  13.5  2.3   4:04.75 gnome-shell 
+ 2090 root      20   0  559296 125024  88232 S   7.3  0.8   2:23.86 Xorg        
+  668 root     -51   0       0      0      0 S   4.0  0.0   0:54.82 irq/140-nv+ 
+10442 ritik.m+  20   0  677956  46372  30844 S   3.3  0.3   0:18.03 gedit       
+11374 ritik.m+  20   0  807372  38384  28836 S   2.6  0.2   0:16.13 gnome-term+ 
+ 2691 ritik.m+  20   0  674820 147076  79824 S   1.0  0.9   1:20.27 mattermost+ 
+19873 ritik.m+  20   0   61744   4372   3476 R   1.0  0.0   0:00.38 top         
+    1 root      20   0  225572   9428   6792 S   0.7  0.1   0:03.83 systemd     
+ 1592 gdm       20   0  676192  24276  19260 S   0.7  0.1   0:00.87 gsd-color   
+   10 root      20   0       0      0      0 I   0.3  0.0   0:08.64 rcu_sched   
+ 1082 avahi     20   0   60808   5184   3412 S   0.3  0.0   0:42.27 avahi-daem+ 
+ 1440 gdm       20   0 4947256 200192  97544 S   0.3  1.2   0:46.87 gnome-shell 
+ 1522 root      20   0 1143300  26596  21672 S   0.3  0.2   0:53.67 epp-client+ 
+ 3050 ritik.m+  20   0 3505520 366352 163076 S   0.3  2.2   3:05.55 firefox     
+ 3783 ritik.m+  20   0 2746088 188220 137064 S   0.3  1.2   0:30.09 Web Content 
+ 5623 ritik.m+  20   0  678852 156500  88372 S   0.3  1.0   0:40.41 code        
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd    
+
+12. Check the disk usage and free disk space with using CLI.
+
+ritik.maheshwari@RSPL-189:~$ df -h
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                         7.8G     0  7.8G   0% /dev
+tmpfs                        1.6G  2.2M  1.6G   1% /run
+/dev/mapper/ubuntu--vg-root  456G   16G  417G   4% /
+tmpfs                        7.8G  115M  7.7G   2% /dev/shm
+tmpfs                        5.0M  4.0K  5.0M   1% /run/lock
+tmpfs                        7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/loop1                   1.0M  1.0M     0 100% /snap/gnome-logs/61
+/dev/loop2                    55M   55M     0 100% /snap/core18/1288
+/dev/loop3                    15M   15M     0 100% /snap/gnome-characters/375
+/dev/loop4                    45M   45M     0 100% /snap/gtk-common-themes/1353
+/dev/loop6                    55M   55M     0 100% /snap/core18/1066
+/dev/loop0                   4.2M  4.2M     0 100% /snap/gnome-calculator/406
+/dev/loop5                   3.8M  3.8M     0 100% /snap/gnome-system-monitor/100
+/dev/loop7                   157M  157M     0 100% /snap/gnome-3-28-1804/110
+/dev/nvme0n1p1               704M  186M  468M  29% /boot
+/dev/loop9                    43M   43M     0 100% /snap/gtk-common-themes/1313
+/dev/loop8                   1.0M  1.0M     0 100% /snap/gnome-logs/81
+/dev/loop10                   89M   89M     0 100% /snap/core/7270
+/dev/loop12                   15M   15M     0 100% /snap/gnome-characters/296
+/dev/loop11                  3.8M  3.8M     0 100% /snap/gnome-system-monitor/123
+/dev/loop13                  150M  150M     0 100% /snap/gnome-3-28-1804/67
+/dev/loop14                  4.3M  4.3M     0 100% /snap/gnome-calculator/544
+/dev/loop15                   90M   90M     0 100% /snap/core/8268
+tmpfs                        1.6G   16K  1.6G   1% /run/user/121
+tmpfs                        1.6G   52K  1.6G   1% /run/user/1124202126
+
+13. Check the all system process and filter out any of one process service.
+
+top - 12:45:51 up  2:41,  1 user,  load average: 0.08, 0.07, 0.08
+Tasks: 402 total,   1 running, 301 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.7 us,  1.1 sy,  0.0 ni, 98.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 16354612 total, 11310376 free,  2797392 used,  2246844 buff/cache
+KiB Swap:   999420 total,   999420 free,        0 used. 13029520 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND     
+   12 root     -51   0       0      0      0 S   0.0  0.0   0:00.00 idle_injec+ 
+   13 root      20   0       0      0      0 I   0.0  0.0   0:00.68 kworker/0:+ 
+   14 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/0     
+   15 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/1     
+   16 root     -51   0       0      0      0 S   0.0  0.0   0:00.00 idle_injec+ 
+   17 root      rt   0       0      0      0 S   0.0  0.0   0:00.03 migration/1 
+   18 root      20   0       0      0      0 S   0.0  0.0   0:00.06 ksoftirqd/1 
+   20 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 kworker/1:+ 
+   21 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/2     
+   22 root     -51   0       0      0      0 S   0.0  0.0   0:00.00 idle_injec+ 
+   23 root      rt   0       0      0      0 S   0.0  0.0   0:00.04 migration/2 
+   24 root      20   0       0      0      0 S   0.0  0.0   0:00.03 ksoftirqd/2 
+   26 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 kworker/2:+ 
+   27 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/3     
+   28 root     -51   0       0      0      0 S   0.0  0.0   0:00.00 idle_injec+ 
+   29 root      rt   0       0      0      0 S   0.0  0.0   0:00.05 migration/3 
+   30 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/3 
+ritik.maheshwari@RSPL-189:~$ ps -c 13
+  PID CLS PRI TTY      STAT   TIME COMMAND
+   13 TS   19 ?        I      0:00 [kworker/0:1-eve]
+
+14. Retrieve the content from web server with using CLI. Here Link
+
+~$ wget https://releases.mattermost.com/desktop/4.3.2/mattermost-desktop-4.3.2-linux-i386.deb
+--2020-01-10 12:49:24--  https://releases.mattermost.com/desktop/4.3.2/mattermost-desktop-4.3.2-linux-i386.deb
+Resolving releases.mattermost.com (releases.mattermost.com)... 13.227.234.77, 13.227.234.122, 13.227.234.69, ...
+Connecting to releases.mattermost.com (releases.mattermost.com)|13.227.234.77|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 74745386 (71M) [application/x-debian-package]
+Saving to: ‘mattermost-desktop-4.3.2-linux-i386.deb’
+
+
+15. Check your network interface information with using CLI.
+
+
+rapidadmin@RSPL-189:/home/ad.rapidops.com/ritik.maheshwari$ ifconfig
+eno2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.69  netmask 255.255.252.0  broadcast 192.168.3.255
+        inet6 fe80::c68d:db67:87f4:2ffb  prefixlen 64  scopeid 0x20<link>
+        ether 00:d8:61:a6:55:c1  txqueuelen 1000  (Ethernet)
+        RX packets 532749  bytes 236627783 (236.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 66188  bytes 6145372 (6.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 16  memory 0xb4200000-b4220000  
+
+
+
+
+
+
