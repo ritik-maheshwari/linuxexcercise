@@ -1,0 +1,310 @@
+1. Create one repository in git, Clone it in your system, push directory and file structure in git.
+
+step 1 created a repo named demo on github
+step 2 then created a folder on my desktop named demo and inside it i cloned the repo bu using
+	git clone https://github.com/ritik-maheshwari/demo.git
+step 3 then i created a new directory named it new_dir1 and in it i made three files t1,t2,t3 using touch command
+step 4 i staged the changes using git add command and commited it using git commit
+step 5 then i pushed the changes to remote repo using
+	git push origin master
+
+2. Create ‘dev’ branch from master and push some contents(directory with two files) inside this
+‘dev’ branch.
+
+step 1 created the dev branch using "git branch dev"
+step 2 then checked out to the dev branch using "git checkout dev"
+step 3 then created a new directory using mkdir command directory name was dir_2
+step 4 then inside it i created two new files d1 and d2
+step 5 i added and commited the changes 
+step 6 then i pushed the dev branch the the remote repo using git push oriigin dev
+
+3. Create ‘branch1' branch from ‘dev’ branch, create one file in ‘branch1’, as well create ‘branch2’ branch and add one file for this branch too.
+
+ritik@ritik-VirtualBox:~/Desktop/demo$ git branch
+* dev
+  master
+ritik@ritik-VirtualBox:~/Desktop/demo$ git branch branch1
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+Switched to branch 'branch1'
+ritik@ritik-VirtualBox:~/Desktop/demo$ touch b1
+ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+On branch branch1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	b1
+
+nothing added to commit but untracked files present (use "git add" to track)
+ritik@ritik-VirtualBox:~/Desktop/demo$ git add .
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "file added to branch 1"
+[branch1 ee3db3a] file added to branch 1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b1
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout dev
+Switched to branch 'dev'
+ritik@ritik-VirtualBox:~/Desktop/demo$ git branch branch2
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch2
+Switched to branch 'branch2'
+ritik@ritik-VirtualBox:~/Desktop/demo$ touch b2
+ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+On branch branch2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	b2
+
+nothing added to commit but untracked files present (use "git add" to track)
+ritik@ritik-VirtualBox:~/Desktop/demo$  git add .
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "added b2 file in branch2"
+[branch2 5504619] added b2 file in branch2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b2
+
+4. Change some contents in existing file inside ‘branch1’ branch, and do same thing for ‘branch2’
+
+ritik@ritik-VirtualBox:~/Desktop/demo$ git branch
+  branch1
+* branch2
+  dev
+  master
+ritik@ritik-VirtualBox:~/Desktop/demo$ git log --oneline
+5504619 (HEAD -> branch2) added b2 file in branch2
+35662bf (origin/dev, dev) added new file to dev branch
+79f7f2b (origin/master, origin/HEAD, master) first commit
+ritik@ritik-VirtualBox:~/Desktop/demo$ ls
+b2  dir_2  new_dir1
+ritik@ritik-VirtualBox:~/Desktop/demo$ cat > b2
+this is b2
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+error: Your local changes to the following files would be overwritten by checkout:
+	b2
+Please commit your changes or stash them before you switch branches.
+Aborting
+ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   b2
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ritik@ritik-VirtualBox:~/Desktop/demo$ git add .
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+error: Your local changes to the following files would be overwritten by checkout:
+	b2
+Please commit your changes or stash them before you switch branches.
+Aborting
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "changes in b2"
+[branch2 a5eb799] changes in b2
+ 1 file changed, 1 insertion(+)
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+Switched to branch 'branch1'
+ritik@ritik-VirtualBox:~/Desktop/demo$ cat > b1
+this is b1
+ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+On branch branch1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   b1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ritik@ritik-VirtualBox:~/Desktop/demo$ git add b1
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "changes in b1"
+[branch1 1168ec3] changes in b1
+ 1 file changed, 1 insertion(+)
+
+5. Commit those changes and after committing change the commit message.
+
+ritik@ritik-VirtualBox:~/Desktop/demo$ git branch
+* branch1
+  branch2
+  dev
+  master
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit --amend -m "amended commit in b1" 
+[branch1 c61db94] amended commit in b1
+ Date: Sun Jan 19 13:38:06 2020 +0530
+ 1 file changed, 1 insertion(+)
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch2
+Switched to branch 'branch2'
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit --amend -m "amended commit in b2" 
+[branch2 542268e] amended commit in b2
+ Date: Sun Jan 19 13:28:40 2020 +0530
+ 1 file changed, 1 insertion(+)
+
+6 After changing commit message you have to push your new changes on git. (NOTE: if you get any conflicts then resolve it and then push that in git.)
+
+
+ 	git push origin branch1
+   	git push origin branch2
+
+7. Merge ‘branch1’ and ‘branch2’ in dev branch.
+
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout dev
+Switched to branch 'dev'
+ritik@ritik-VirtualBox:~/Desktop/demo$ git merge branch1 branch2
+Fast-forwarding to: branch1
+Trying simple merge with branch2
+Merge made by the 'octopus' strategy.
+ b1 | 1 +
+ b2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 b1
+
+8. Follow the steps:
+
+
+    (a). Make a few changes in ‘branch1’ contents
+
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+	Switched to branch 'branch1'
+	ritik@ritik-VirtualBox:~/Desktop/demo$ cat >> b1
+	b1 accessed
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+	On branch branch1
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   b1
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	ritik@ritik-VirtualBox:~/Desktop/demo$ 
+	
+
+   (b). Without ‘adding and committing those changes’ (branch1), make some changes in branch2 contents (stash your branch1 changes and then apply some changes in branch2)
+	
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+	Switched to branch 'branch1'
+	ritik@ritik-VirtualBox:~/Desktop/demo$ cat >> b1
+	b1 accessed
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+	On branch branch1
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+		modified:   b1
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git stash b1
+	usage: git stash list [<options>]
+	   or: git stash show [<stash>]
+	   or: git stash drop [-q|--quiet] [<stash>]
+	   or: git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>]
+	   or: git stash branch <branchname> [<stash>]
+	   or: git stash save [--patch] [-k|--[no-]keep-index] [-q|--quiet]
+			      [-u|--include-untracked] [-a|--all] [<message>]
+	   or: git stash [push [--patch] [-k|--[no-]keep-index] [-q|--quiet]
+			       [-u|--include-untracked] [-a|--all] [-m <message>]
+			       [-- <pathspec>...]]
+	   or: git stash clear
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+	On branch branch1
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+		modified:   b1
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git stash list
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git stash
+	Saved working directory and index state WIP on branch1: c61db94 amended commit in b1
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git stash list
+	stash@{0}: WIP on branch1: c61db94 amended commit in b1
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch2
+	Switched to branch 'branch2'
+	ritik@ritik-VirtualBox:~/Desktop/demo$ cat >> b2
+	b2 accessed
+	ritik@ritik-VirtualBox:~/Desktop/demo$ git status
+	On branch branch2
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+		modified:   b2
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+
+    (c). Add and commit your branch2 changes and then come back to branch1 and get back your stash changes.
+ 
+ritik@ritik-VirtualBox:~/Desktop/demo$ git add b2
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "b2 modified"
+[branch2 7b43a81] b2 modified
+ 1 file changed, 1 insertion(+)
+ritik@ritik-VirtualBox:~/Desktop/demo$ git checkout branch1
+Switched to branch 'branch1'
+ritik@ritik-VirtualBox:~/Desktop/demo$ git stash pop
+On branch branch1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   b1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (c6ad3202152682b13f738b0dcd3944b1c71d7424)
+ritik@ritik-VirtualBox:~/Desktop/demo$ git add .
+ritik@ritik-VirtualBox:~/Desktop/demo$ git commit -m "stash poped b1"
+[branch1 d304454] stash poped b1
+ 1 file changed, 1 insertion(+)
+ritik@ritik-VirtualBox:~/Desktop/demo$ 
+
+9. Follow the steps:
+
+
+    (a). Create two branches from dev, i.e ‘feature1’ & ‘feature2’.
+
+
+    (b). Add some content in ‘feature1’ as well as add some content in ‘feature2’
+
+
+    (c). Push ‘feature1’ on git
+
+
+    (d). Take pull of ‘feature1’ in ‘feature2’
+
+
+    (e). Merge ‘feature1’ into ‘dev’ branch
+
+
+    (f). Take pull of ‘dev’ branch
+
+
+    (g). Push your ‘feature2’ on git
+
+
+    (h). Rebase ‘feature2’ with ‘dev’ branch and then merge ‘feature2’ in ‘dev’.
+
+  116  git checkout dev
+  117  git branch feature1
+  118  git checkout feature1
+  119  cat > f1
+  120  git status
+  121  git add f1
+  122  git commit -m "feature1 added"
+  123  git checkout -b feature2
+  124  cat > f2
+  125  git status
+  126  git add f2
+  127  git commit -m "feature 2 added"
+  128  git push origin feature1
+  129  git checkout feature2
+  130  git pull origin feature1
+  131  git checkout dev
+  132  git merge feature1
+  133  git pull origin dev
+  134  git push origin feature2
+  135  git checkout feature2
+  136  git rebase dev
+  137  git checkout dev
+  138  git merge feature2
+  139  git log --graph --all
+  140  git push origin dev
+
+
+ 
