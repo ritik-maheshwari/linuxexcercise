@@ -1,0 +1,234 @@
+.navbar{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.navbar:hover{
+    background-color: #38c0f7;
+}
+
+.navbar li:hover{
+    color:white
+}
+
+.nav-item a:hover{
+    color: white;
+    background-color:#38c0f7;
+}
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#div2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#div3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#row1{
+    margin-bottom: 45px;
+}
+
+#fleximg{
+    width: 100%;
+    height: 100%;
+}
+
+#desc1{
+    text-align: center;
+}
+
+#img1{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+#img2{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+#img3{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+p{
+    text-align: center;
+    color: #3f5054;
+    margin-bottom: 50px;
+}
+
+#desc2{
+    margin-top: 80px;
+
+}
+
+#head1{
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color:#38c0f7 ;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+   
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    margin:0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color:#38c0f7;
+    color:white ;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .ovl{
+      opacity: 0;
+  }
+
+  .ovl:hover{
+      opacity: 0.8;
+      background: #38c0f7;
+      
+  }
+
+  #form-section{
+      margin-top: 100px;
+    
+  }
+
+  .bg-img {
+    /* The image used */
+    background-image: url("images/dark-background1.jpeg");
+  
+    width: 100%;
+    height: 60%;
+    
+    
+    
+   
+
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  #form-heading{
+      color: white;
+  }
+
+  #form-div{
+      padding-top: 40;
+      text-align: center;
+
+  }
+  form{
+      width: 500px;
+      margin: auto;
+  }
+
+  .form-input{
+      
+      border: 1px solid white;
+      border-radius: 4px;
+      background: transparent;
+      margin-bottom: 15px;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  #textmsg{
+      background: transparent;
+      border: 1px solid white;
+      border-radius: 4px;
+      resize:none;
+  }
+  .button{
+    border: 1px solid #38c0f7 ;
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+  }
+
+  #button{
+      display: inline;
+  }
+  #checkbox{
+      display: inline;
+  }
+
+  #checkbox-label{
+      color: white;
+  }
+
+  label{
+      color: white;
+  }
+  input{
+      color: white;
+  }
+#pad{
+    padding-top: 25px;
+}
+
+#footer-text{
+    float: left;
+}
+
+#icons{
+    margin-left: 5px;
+    font-size: 30px;
+    color: #38c0f7;
+}
+
+#image-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:25%
+}
+
+#overlay-icons{
+    font-size: 30px;
+    padding-right: 15px;
+}
+
+
+
+
